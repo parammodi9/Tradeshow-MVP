@@ -25,7 +25,7 @@ const MemberDashboard: React.FC = () => {
   };
 
   const handleOptInAllFromVendor = (vendorId: string) => {
-    const vendorDeals = deals.filter(deal => deal.vendorHraId === vendorId);
+    const vendorDeals = deals.filter(deal => deal.vendorId === vendorId);
     // This would trigger opt-in for all deals from this vendor
     // Implementation would be similar to individual deal opt-in
   };

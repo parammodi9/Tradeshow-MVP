@@ -54,7 +54,7 @@ const DealCard: React.FC<DealCardProps> = ({ deal, isOptedIn, showMultiStoreTogg
         optInId: `${Date.now()}-${Math.random()}`,
         dealId: deal.dealId,
         storeHraId,
-        userHraId: user.hraId,
+        userId: user.hraId || `${user.role}-${Date.now()}`, // Use hraId for members, generate ID for others
         caseCount,
         timestamp: new Date().toISOString(),
         isGuest: user.role === 'Guest'

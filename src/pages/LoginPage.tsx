@@ -58,7 +58,7 @@ const LoginPage: React.FC = () => {
 
       // Create user object
       user = {
-        hraId: `HRA${300 + Date.now() % 100}`,
+        hraId: role === 'Member' ? `HRA${300 + Date.now() % 100}` : undefined,
         name,
         email,
         role,
@@ -70,7 +70,7 @@ const LoginPage: React.FC = () => {
       // For guests, add to guest table
       if (role === 'Guest') {
         addGuest({
-          hraId: `HRA${400 + Date.now() % 100}`,
+          guestId: `G${Date.now()}`,
           name,
           email,
           address,
@@ -196,7 +196,7 @@ const LoginPage: React.FC = () => {
                 <option value="Member">Member</option>
                 <option value="Guest">Guest</option>
                 <option value="Vendor">Vendor</option>
-                <option value="Admin">Admin</option>
+                <option value="Admin">HRA Staff (Admin)</option>
               </select>
             </div>
 
@@ -204,7 +204,7 @@ const LoginPage: React.FC = () => {
               <div>
                 <div className="flex items-center justify-between">
                   <label htmlFor="storeHraId" className="block text-sm font-medium text-gray-700">
-                    Store HRA ID
+                    {role === 'Member' ? 'Store HRA ID' : 'Store HRA ID (visiting)'}
                   </label>
                   <button
                     type="button"
@@ -222,8 +222,24 @@ const LoginPage: React.FC = () => {
                   value={storeHraId}
                   onChange={(e) => setStoreHraId(e.target.value)}
                   className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500"
-                  placeholder="Enter store HRA ID or scan QR"
+                  placeholder={role === 'Member' ? 'Enter your store HRA ID' : 'Enter store HRA ID you are visiting'}
                 />
+              </div>
+            )}
+
+            {role === 'Admin' && (
+              <div className="bg-blue-50 border border-blue-200 rounded-md p-3">
+                <p className="text-sm text-blue-800">
+                  <strong>HRA Staff Access:</strong> You will have administrative privileges to manage deals, store groups, and view analytics.
+                </p>
+              </div>
+            )}
+
+            {role === 'Vendor' && (
+              <div className="bg-green-50 border border-green-200 rounded-md p-3">
+                <p className="text-sm text-green-800">
+                  <strong>Vendor Access:</strong> You will be able to view your deal performance and export customer data.
+                </p>
               </div>
             )}
 

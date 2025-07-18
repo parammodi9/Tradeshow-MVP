@@ -30,7 +30,7 @@ const AdminDashboard: React.FC = () => {
     childStoreHraIds: [] as string[]
   });
   const [dealForm, setDealForm] = useState({
-    vendorHraId: '',
+    vendorId: '',
     productName: '',
     brand: '',
     image: '',
@@ -54,7 +54,7 @@ const AdminDashboard: React.FC = () => {
 
   const vendorStats = vendors.map(vendor => {
     const vendorOptIns = optIns.filter(opt => 
-      deals.find(deal => deal.dealId === opt.dealId && deal.vendorHraId === vendor.hraId)
+      deals.find(deal => deal.dealId === opt.dealId && deal.vendorId === vendor.vendorId)
     );
     return {
       vendor: vendor.name,
@@ -155,7 +155,7 @@ const AdminDashboard: React.FC = () => {
   const handleDealSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    const vendor = vendors.find(v => v.hraId === dealForm.vendorHraId);
+    const vendor = vendors.find(v => v.vendorId === dealForm.vendorId);
     if (!vendor) {
       toast.error('Please select a valid vendor');
       return;
@@ -183,7 +183,7 @@ const AdminDashboard: React.FC = () => {
     
     setShowDealForm(false);
     setDealForm({
-      vendorHraId: '',
+      vendorId: '',
       productName: '',
       brand: '',
       image: '',
@@ -195,7 +195,7 @@ const AdminDashboard: React.FC = () => {
 
   const handleEditDeal = (deal: any) => {
     setDealForm({
-      vendorHraId: deal.vendorHraId,
+      vendorId: deal.vendorId,
       productName: deal.productName,
       brand: deal.brand,
       image: deal.image,
@@ -386,7 +386,7 @@ const AdminDashboard: React.FC = () => {
                 >
                   <option value="">All Vendors</option>
                   {vendors.map(vendor => (
-                    <option key={vendor.hraId} value={vendor.hraId}>{vendor.name}</option>
+                    <option key={vendor.vendorId} value={vendor.vendorId}>{vendor.name}</option>
                   ))}
                 </select>
                 
@@ -723,14 +723,14 @@ const AdminDashboard: React.FC = () => {
                     </label>
                     <select
                       required
-                      value={dealForm.vendorHraId}
-                      onChange={(e) => setDealForm({...dealForm, vendorHraId: e.target.value})}
+                      value={dealForm.vendorId}
+                      onChange={(e) => setDealForm({...dealForm, vendorId: e.target.value})}
                       className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-red-500 focus:border-red-500"
                     >
                       <option value="">Select Vendor...</option>
                       {vendors.map(vendor => (
-                        <option key={vendor.hraId} value={vendor.hraId}>
-                          {vendor.name} ({vendor.hraId})
+                        <option key={vendor.vendorId} value={vendor.vendorId}>
+                          {vendor.name} ({vendor.vendorId})
                         </option>
                       ))}
                     </select>
@@ -829,7 +829,7 @@ const AdminDashboard: React.FC = () => {
                         setShowDealForm(false);
                         setEditingDeal(null);
                         setDealForm({
-                          vendorHraId: '',
+                          vendorId: '',
                           productName: '',
                           brand: '',
                           image: '',

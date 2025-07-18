@@ -10,7 +10,8 @@ const VendorDashboard: React.FC = () => {
   const { user } = useAuth();
   const { deals, optIns, stores } = useData();
 
-  const vendorDeals = deals.filter(deal => deal.vendorHraId === user?.hraId);
+  // For vendors, we'll need to match by name or email since they don't have HRA IDs
+  const vendorDeals = deals.filter(deal => deal.vendorName === user?.name);
 
   const exportCSV = (dealId: string) => {
     const dealOptIns = optIns.filter(opt => opt.dealId === dealId);

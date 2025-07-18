@@ -90,7 +90,7 @@ const QRScanner: React.FC = () => {
               >
                 <option value="">Choose a vendor...</option>
                 {vendors.map(vendor => (
-                  <option key={vendor.hraId} value={vendor.hraId}>
+                  <option key={vendor.vendorId} value={vendor.vendorId}>
                     {vendor.name}
                   </option>
                 ))}
@@ -102,7 +102,7 @@ const QRScanner: React.FC = () => {
                 onClick={handleManualSelect}
                 className="w-full bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700 transition-colors flex items-center justify-center space-x-2"
               >
-                <span>View {vendors.find(v => v.hraId === selectedVendor)?.name} Deals</span>
+                <span>View {vendors.find(v => v.vendorId === selectedVendor)?.name} Deals</span>
                 <ArrowRight className="h-4 w-4" />
               </button>
             )}

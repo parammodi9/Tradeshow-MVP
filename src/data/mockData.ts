@@ -3,7 +3,7 @@ import { Deal, Store, Vendor, StoreGroup } from '../types';
 export const mockDeals: Deal[] = [
   {
     dealId: '1',
-    vendorHraId: 'HRA201',
+    vendorId: 'V001',
     brand: 'PepsiCo',
     productName: 'Pepsi Cola 12-Pack',
     image: 'https://images.pexels.com/photos/50593/coca-cola-cold-drink-soft-drink-coke-50593.jpeg?auto=compress&cs=tinysrgb&w=400',
@@ -14,7 +14,7 @@ export const mockDeals: Deal[] = [
   },
   {
     dealId: '2',
-    vendorHraId: 'HRA202',
+    vendorId: 'V002',
     brand: 'Coca-Cola',
     productName: 'Coca-Cola Classic 24-Pack',
     image: 'https://images.pexels.com/photos/50593/coca-cola-cold-drink-soft-drink-coke-50593.jpeg?auto=compress&cs=tinysrgb&w=400',
@@ -25,7 +25,7 @@ export const mockDeals: Deal[] = [
   },
   {
     dealId: '3',
-    vendorHraId: 'HRA201',
+    vendorId: 'V001',
     brand: 'Frito-Lay',
     productName: 'Lays Chips Variety Pack',
     image: 'https://images.pexels.com/photos/1633525/pexels-photo-1633525.jpeg?auto=compress&cs=tinysrgb&w=400',
@@ -36,7 +36,7 @@ export const mockDeals: Deal[] = [
   },
   {
     dealId: '4',
-    vendorHraId: 'HRA203',
+    vendorId: 'V003',
     brand: 'General Mills',
     productName: 'Cheerios Cereal 18oz',
     image: 'https://images.pexels.com/photos/5945771/pexels-photo-5945771.jpeg?auto=compress&cs=tinysrgb&w=400',
@@ -47,7 +47,7 @@ export const mockDeals: Deal[] = [
   },
   {
     dealId: '5',
-    vendorHraId: 'HRA204',
+    vendorId: 'V004',
     brand: 'Procter & Gamble',
     productName: 'Tide Laundry Detergent',
     image: 'https://images.pexels.com/photos/5591663/pexels-photo-5591663.jpeg?auto=compress&cs=tinysrgb&w=400',
@@ -68,10 +68,10 @@ export const mockStores: Store[] = [
 ];
 
 export const mockVendors: Vendor[] = [
-  { hraId: 'HRA201', name: 'PepsiCo Beverages', contactInfo: 'sales@pepsico.com' },
-  { hraId: 'HRA202', name: 'Coca-Cola Company', contactInfo: 'partners@coca-cola.com' },
-  { hraId: 'HRA203', name: 'General Mills', contactInfo: 'retail@generalmills.com' },
-  { hraId: 'HRA204', name: 'P&G Consumer Products', contactInfo: 'business@pg.com' }
+  { vendorId: 'V001', name: 'PepsiCo Beverages', contactInfo: 'sales@pepsico.com' },
+  { vendorId: 'V002', name: 'Coca-Cola Company', contactInfo: 'partners@coca-cola.com' },
+  { vendorId: 'V003', name: 'General Mills', contactInfo: 'retail@generalmills.com' },
+  { vendorId: 'V004', name: 'P&G Consumer Products', contactInfo: 'business@pg.com' }
 ];
 
 export const mockStoreGroups: StoreGroup[] = [

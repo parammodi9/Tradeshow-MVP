@@ -1,5 +1,5 @@
 export interface User {
-  hraId: string;
+  hraId?: string; // Optional - only for Members
   name: string;
   email: string;
   role: 'Member' | 'Guest' | 'Vendor' | 'Admin';
@@ -22,7 +22,7 @@ export interface StoreGroup {
 
 export interface Deal {
   dealId: string;
-  vendorHraId: string;
+  vendorId: string; // Updated to match Vendor interface
   brand: string;
   productName: string;
   image: string;
@@ -36,20 +36,20 @@ export interface OptIn {
   optInId: string;
   dealId: string;
   storeHraId: string;
-  userHraId: string;
+  userId: string; // Generic user identifier
   caseCount: number;
   timestamp: string;
   isGuest: boolean;
 }
 
 export interface Vendor {
-  hraId: string;
+  vendorId: string; // Use vendorId instead of hraId
   name: string;
   contactInfo: string;
 }
 
 export interface Guest {
-  hraId: string;
+  guestId: string; // Use guestId instead of hraId
   name: string;
   email: string;
   address: string;

@@ -17,7 +17,7 @@ const GuestDashboard: React.FC = () => {
   const isOptedIn = (dealId: string) => {
     return optIns.some(optIn => 
       optIn.dealId === dealId && 
-      optIn.userHraId === user?.hraId
+      optIn.userId === (user?.hraId || `${user?.role}-${user?.email}`)
     );
   };
 
